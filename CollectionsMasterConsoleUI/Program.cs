@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace CollectionsMasterConsoleUI
 {
@@ -14,16 +15,18 @@ namespace CollectionsMasterConsoleUI
             #region Arrays
             //TODO: Create an integer Array of size 50
 
-            var array = new Array[50];
-
-
-            //TODO: Create a method to populate the number array with 50 random numbers that are between 0 and 50
-
-            foreach (var item in array) { 
-            
-            
-            
+            var list = new int[50];
+            Populater(list);
+            int count = 1; 
+            foreach (int i in list)
+            {
+                Console.WriteLine($"{count}: {list[i]}");
+                count++;
             }
+            Console.WriteLine($"The first number is {list[0]}.");
+            Console.WriteLine($"The last number is {list[49]}"); 
+
+           
             //TODO: Print the first number of the array
 
             //TODO: Print the last number of the array            
@@ -124,6 +127,7 @@ namespace CollectionsMasterConsoleUI
         }
 
         private static void Populater(List<int> numberList)
+   
         {
             Random rng = new Random();
 
@@ -131,8 +135,11 @@ namespace CollectionsMasterConsoleUI
 
         private static void Populater(int[] numbers)
         {
-            Random rng = new Random();
-
+            for (int i = 0; i < numbers.Length-1; i++) {
+                Random rng = new Random();
+                int v = rng.Next(0, 50);
+                numbers[i] = v;
+            }
         }        
 
         private static void ReverseArray(int[] array)
