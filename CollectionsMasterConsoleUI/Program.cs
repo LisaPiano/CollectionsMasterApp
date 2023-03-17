@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading;
 
 namespace CollectionsMasterConsoleUI
@@ -18,13 +19,13 @@ namespace CollectionsMasterConsoleUI
             var list = new int[50];
             Populater(list);
             int count = 1; 
-            foreach (int i in list)
+            for (int i =0; i < list.Length; i++)
             {
                 Console.WriteLine($"{count}: {list[i]}");
                 count++;
             }
             Console.WriteLine($"The first number is {list[0]}.");
-            Console.WriteLine($"The last number is {list[49]}"); 
+            Console.WriteLine($"The last number is {list[list.Length-1]}"); 
 
            
             //TODO: Print the first number of the array
@@ -135,7 +136,7 @@ namespace CollectionsMasterConsoleUI
 
         private static void Populater(int[] numbers)
         {
-            for (int i = 0; i < numbers.Length-1; i++) {
+            for (int i = 0; i < numbers.Length; i++) {
                 Random rng = new Random();
                 int v = rng.Next(0, 50);
                 numbers[i] = v;
