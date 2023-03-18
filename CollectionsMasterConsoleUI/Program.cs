@@ -18,12 +18,7 @@ namespace CollectionsMasterConsoleUI
 
             var list = new int[50];
             Populater(list);
-            int count = 1; 
-            for (int i =0; i < list.Length; i++)
-            {
-                Console.WriteLine($"{count}: {list[i]}");
-                count++;
-            }
+           
             Console.WriteLine($"The first number is {list[0]}.");
             Console.WriteLine($"The last number is {list[list.Length-1]}"); 
 
@@ -34,7 +29,7 @@ namespace CollectionsMasterConsoleUI
 
             Console.WriteLine("All Numbers Original");
             //UNCOMMENT this method to print out your numbers from arrays or lists
-            //NumberPrinter();
+            NumberPrinter(list);
             Console.WriteLine("-------------------");
 
             //TODO: Reverse the contents of the array and then print the array out to the console.
@@ -46,6 +41,8 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("All Numbers Reversed:");
 
             Console.WriteLine("---------REVERSE CUSTOM------------");
+
+            ReverseArray(list);
 
             Console.WriteLine("-------------------");
 
@@ -145,7 +142,8 @@ namespace CollectionsMasterConsoleUI
 
         private static void ReverseArray(int[] array)
         {
-            
+            Array.Reverse(array);
+            NumberPrinter(array);
         }
 
         /// <summary>
