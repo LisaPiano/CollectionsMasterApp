@@ -48,7 +48,7 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Create a method that will set numbers that are a multiple of 3 to zero then print to the console all numbers
             Console.WriteLine("Multiple of three = 0: ");
-            
+            ThreeKiller(list);
 
             Console.WriteLine("-------------------");
 
@@ -56,7 +56,8 @@ namespace CollectionsMasterConsoleUI
             /*      Hint: Array.____()      */
             Console.WriteLine("Sorted numbers:");
             
-
+            Array.Sort(list);
+            NumberPrinter(list);
             Console.WriteLine("\n************End Arrays*************** \n");
             #endregion
 
@@ -111,7 +112,15 @@ namespace CollectionsMasterConsoleUI
 
         private static void ThreeKiller(int[] numbers)
         {
-            
+           for (var i = 0; i < numbers.Length; i++)
+               {
+                if (numbers[i] % 3 == 0)
+                {
+                    numbers[i] = 0;
+                }
+               
+            }
+            NumberPrinter(numbers);
         }
 
         private static void OddKiller(List<int> numberList)
