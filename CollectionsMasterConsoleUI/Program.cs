@@ -118,14 +118,24 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Sort the list then print results
             Console.WriteLine("Sorted Evens!!");
+
+            numberList.Sort();
+            NumberPrinter(numberList);
             
             Console.WriteLine("------------------");
 
             //TODO: Convert the list to an array and store that into a variable
+
+            int[] listToArray = numberList.ToArray();
+          
             
 
             //TODO: Clear the list
-            
+
+            numberList.Clear();
+            Console.WriteLine("See! No more lists or array. No more time to play. :(");
+            NumberPrinter(numberList);
+
 
             #endregion
         }
