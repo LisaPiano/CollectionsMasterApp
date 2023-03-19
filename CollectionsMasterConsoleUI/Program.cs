@@ -66,23 +66,39 @@ namespace CollectionsMasterConsoleUI
 
             /*   Set Up   */
             //TODO: Create an integer List
-            
+
+            var numberList = new List<int>();
+            Console.WriteLine(numberList);
+            Console.WriteLine($"Here is the first capacity: {numberList.Capacity}");
+
 
             //TODO: Print the capacity of the list to the console
-            
+            Populater(numberList);
+            Console.WriteLine($"Here is the new capacity: {numberList.Capacity}");
+
 
             //TODO: Populate the List with 50 random numbers between 0 and 50 you will need a method for this            
-            
+
 
             //TODO: Print the new capacity
-            
+
 
             Console.WriteLine("---------------------");
 
             //TODO: Create a method that prints if a user number is present in the list
             //Remember: What if the user types "abc" accident your app should handle that!
-            Console.WriteLine("What number will you search for in the number list?");
-            
+            int answer;
+            bool isANumber;
+            do
+            {
+                Console.WriteLine("What number will you search for in the number list?");
+                isANumber = int.TryParse(Console.ReadLine(), out answer);
+            } while (!isANumber);
+
+
+            NumberChecker(numberList, answer);
+
+
             Console.WriteLine("-------------------");
 
             Console.WriteLine("All Numbers:");
@@ -130,16 +146,32 @@ namespace CollectionsMasterConsoleUI
 
         private static void NumberChecker(List<int> numberList, int searchNumber)
         {
-            
+            if (numberList.Contains(searchNumber))
+            {
+                Console.WriteLine($"Yes! Your number, {searchNumber} is in the list. See! Here is the list:");
+                NumberPrinter(numberList);
+            }
+            else
+            {
+                Console.WriteLine($"No, sorry. Avada Kedavra! Your number, {searchNumber} is not in the list. See! Here is the list:");
+                NumberPrinter(numberList);
+            }
         }
 
         private static void Populater(List<int> numberList)
    
         {
-            Random rng = new Random();
-
+            int no = 1;
+            for (int i = 0; i < 50; i++)
+            {
+                Random rng = new Random();
+                numberList.Add(rng.Next(0, 50));
+                Console.WriteLine($"{no}. is {numberList[i]}");
+                no++;
+            }
+            NumberPrinter(numberList);
         }
-
+        
         private static void Populater(int[] numbers)
         {
             for (int i = 0; i < numbers.Length; i++) {
