@@ -55,7 +55,8 @@ namespace CollectionsMasterConsoleUI
             //TODO: Sort the array in order now
             /*      Hint: Array.____()      */
             Console.WriteLine("Sorted numbers:");
-            
+           
+
             Array.Sort(list);
             NumberPrinter(list);
             Console.WriteLine("\n************End Arrays*************** \n");
